@@ -1,0 +1,65 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<body>
+
+    <f:view contracts="#{view.locale.language}">
+
+        <ui:composition template="/template.xhtml">
+
+            <ui:define name="content">
+
+                <h1>My Campaigns</h1>
+
+                <h:form>
+
+                    <h:dataTable value="#{campaignListProducer.campaigns}" var="campaign">
+
+                        <h:column>
+                            <h:commandLink value="x" actionListener="#{listCampaignsController.doDeleteCampaign(campaign)}" />
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Name</f:facet>
+                            <h:outputText value="#{campaign.name}" />
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Target Amount</f:facet>
+                            <h:outputText value="#{campaign.targetAmount}">
+                                <f:convertNumber type="currency" currencyCode="EUR" />
+                            </h:outputText>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Donated so far</f:facet>
+                            <h:outputText value="#{campaign.amountDonatedSoFar}">
+                                <f:convertNumber type="currency" currencyCode="EUR" />
+                            </h:outputText>
+                        </h:column>
+
+                        <h:column>
+                            <h:commandLink value="Edit" action="#{listCampaignsController.doEditCampaign(campaign)}" />
+                        </h:column>
+
+                        <h:column>
+                            <h:commandLink value="List donations" action="#{listCampaignsController.doListDonations(campaign)}" />
+                        </h:column>
+
+                        <h:column>
+                            <h:commandLink value="Form" action="#{listCampaignsController.doEditDonationForm(campaign)}" />
+                        </h:column>
+
+                    </h:dataTable>
+
+                    <h:commandButton value="Add campaign" action="#{listCampaignsController.doAddCampaign}" />
+
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </f:view>
+</body>
+
+</html>

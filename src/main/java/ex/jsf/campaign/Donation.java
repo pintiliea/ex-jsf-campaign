@@ -10,6 +10,7 @@ public class Donation {
 	public enum Status {
 		TRANSFERRED, IN_PROCESS;
 	}
+
 	public Donation() {
 		this.account = new Account();
 	}
