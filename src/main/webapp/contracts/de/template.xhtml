@@ -12,8 +12,6 @@
 
 <h:body id="template">
 
-    <h:outputLink value="#{request.contextPath}/">#{request.contextPath}/</h:outputLink>
-
     <div id="container">
 
         <div id="header">
@@ -27,7 +25,7 @@
         </div>
 
         <div id="footer">
-            <p> (CC) footer</p>
+            <p> <h:outputLink value="#{request.contextPath}/">(CC) footer</h:outputLink></p>
         </div>
 
     </div>

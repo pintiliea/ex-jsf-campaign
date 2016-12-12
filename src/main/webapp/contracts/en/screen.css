@@ -29,3 +29,7 @@ body {
 h2 {
 	font-size: 1.2em;
 }
+table {
+    border-spacing: 20px;
+    border-collapse: separate;
+}

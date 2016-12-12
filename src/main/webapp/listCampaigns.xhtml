@@ -11,7 +11,7 @@
 
             <ui:define name="content">
 
-                <h1>My Campaigns</h1>
+                <h1>#{msg['listCampaigns.my_campaigns']}</h1>
 
                 <h:form>
 
@@ -22,39 +22,39 @@
                         </h:column>
 
                         <h:column>
-                            <f:facet name="header">Name</f:facet>
+                            <f:facet name="header">#{msg['listCampaigns.name']}</f:facet>
                             <h:outputText value="#{campaign.name}" />
                         </h:column>
 
                         <h:column>
-                            <f:facet name="header">Target Amount</f:facet>
+                            <f:facet name="header">#{msg['listCampaigns.target_amount']}</f:facet>
                             <h:outputText value="#{campaign.targetAmount}">
                                 <f:convertNumber type="currency" currencyCode="EUR" />
                             </h:outputText>
                         </h:column>
 
                         <h:column>
-                            <f:facet name="header">Donated so far</f:facet>
+                            <f:facet name="header">#{msg['listCampaigns.donated_so_far']}</f:facet>
                             <h:outputText value="#{campaign.amountDonatedSoFar}">
                                 <f:convertNumber type="currency" currencyCode="EUR" />
                             </h:outputText>
                         </h:column>
 
                         <h:column>
-                            <h:commandLink value="Edit" action="#{listCampaignsController.doEditCampaign(campaign)}" />
+                            <h:commandLink value="#{msg['listCampaigns.edit']}" action="#{listCampaignsController.doEditCampaign(campaign)}" />
                         </h:column>
 
                         <h:column>
-                            <h:commandLink value="List donations" action="#{listCampaignsController.doListDonations(campaign)}" />
+                            <h:commandLink value="#{msg['listCampaigns.list_donations']}" action="#{listCampaignsController.doListDonations(campaign)}" />
                         </h:column>
 
                         <h:column>
-                            <h:commandLink value="Form" action="#{listCampaignsController.doEditDonationForm(campaign)}" />
+                            <h:commandLink value="#{msg['listCampaigns.form']}" action="#{listCampaignsController.doEditDonationForm(campaign)}" />
                         </h:column>
 
                     </h:dataTable>
 
-                    <h:commandButton value="Add campaign" action="#{listCampaignsController.doAddCampaign}" />
+                    <h:commandButton value="#{msg['listCampaigns.add_campaign']}" action="#{listCampaignsController.doAddCampaign}" />
 
                 </h:form>
             </ui:define>
