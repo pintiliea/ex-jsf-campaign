@@ -1,6 +1,8 @@
 package ex.jsf.campaign;
 
-public class Account {
+import lombok.Data;
+
+public @Data class Account {
 	private String name;
 	private String nameOfBank;
 	private String iban;

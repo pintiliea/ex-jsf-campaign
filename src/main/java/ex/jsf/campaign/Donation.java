@@ -1,6 +1,8 @@
 package ex.jsf.campaign;
 
-public class Donation {
+import lombok.Data;
+
+public 	@Data class Donation {
 	private Double amount;
 	private String donorName;
 	private Boolean receiptRequested;

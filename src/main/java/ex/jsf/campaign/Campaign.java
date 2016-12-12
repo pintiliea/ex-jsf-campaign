@@ -1,8 +1,9 @@
 package ex.jsf.campaign;
 
 import java.util.List;
+import lombok.Data;
 
-public class Campaign {
+public @Data class Campaign {
 	private String name;
 	private Double targetAmount;
 	private Double donationMinimum;
