@@ -9,14 +9,15 @@ import java.io.Serializable;
 @Named
 public class ListCampaignsController implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	@Inject
+	private CampaignProducer campaignProducer;
 
 	public String doAddCampaign() {
-		System.out.println("Add Campaign");
+		campaignProducer.prepareAddCampaign();
 		return Pages.EDIT_CAMPAIGN;
 	}
 	public String doEditCampaign(Campaign campaign) {
-		System.out.println("Edit Campaign "+campaign);
+		campaignProducer.prepareEditCampaign(campaign);
 		return Pages.EDIT_CAMPAIGN;
 	}
 	public String doEditDonationForm(Campaign campaign) {
@@ -30,4 +31,6 @@ public class ListCampaignsController implements Serializable {
 	public void doDeleteCampaign(Campaign campaign) {
 		System.out.println("Deletion not implemented, yet!");
 	}
+
+	private static final long serialVersionUID = 1L;
 }
