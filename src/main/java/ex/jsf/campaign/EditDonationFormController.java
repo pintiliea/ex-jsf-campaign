@@ -21,8 +21,18 @@ public class EditDonationFormController implements Serializable {
 		return Pages.LIST_CAMPAIGNS;
 	}
 
-  public String getUrl() {
-		return "http://localhost:8080/ex-jsf-campaign/donateMoney.jsf?bgColor="
+	private String getAppUrl() {
+		HttpServletRequest req = (HttpServletRequest) FacesContext
+				.getCurrentInstance().getExternalContext().getRequest();
+		String scheme = req.getScheme();
+		String serverName = req.getServerName();
+		int serverPort = req.getServerPort();
+		String contextPath = req.getContextPath();
+		return scheme + "://" + serverName + ":" + serverPort + contextPath;
+	}
+
+	public String getUrl() {
+		return getAppUrl() + "/" + Pages.DONATE_MONEY + ".jsf" + "?bgColor="
 				+ bgColor + "&textColor=" + textColor + "&campaignId="
 				+ campaignProducer.getSelectedCampaign().getId();
 	}
