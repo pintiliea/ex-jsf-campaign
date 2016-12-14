@@ -12,6 +12,8 @@ public class ListCampaignsController implements Serializable {
 	@Inject
 	private CampaignProducer campaignProducer;
 
+	private Campaign campaignToDelete;
+
 	public String doAddCampaign() {
 		campaignProducer.prepareAddCampaign();
 		return Pages.EDIT_CAMPAIGN;
@@ -21,15 +23,19 @@ public class ListCampaignsController implements Serializable {
 		return Pages.EDIT_CAMPAIGN;
 	}
 	public String doEditDonationForm(Campaign campaign) {
-		System.out.println("Edit Donation Form of Campaign "+campaign);
+		campaignProducer.setSelectedCampaign(campaign);
 		return Pages.EDIT_DONATION_FORM;
 	}
 	public String doListDonations(Campaign campaign) {
-		System.out.println("List Donations of Campaign "+campaign);
+		campaignProducer.setSelectedCampaign(campaign);
 		return Pages.LIST_DONATIONS;
 	}
 	public void doDeleteCampaign(Campaign campaign) {
-		System.out.println("Deletion not implemented, yet!");
+		this.campaignToDelete = campaign;
+		System.out.println("Campaign registered for deletion!");
+	}
+	public void commitDeleteCampaign() {
+			System.out.println("Deletion not implemented, yet!");
 	}
 
 	private static final long serialVersionUID = 1L;
