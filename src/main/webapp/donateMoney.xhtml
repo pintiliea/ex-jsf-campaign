@@ -2,6 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
     xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
@@ -41,7 +42,7 @@
         <h:panelGrid columns="3">
 
             <h:outputLabel value="#{msg['donateMoney.name']}:"> </h:outputLabel>
-            <h:inputText id="name" value="#{donateMoneyController.donation.donorName}">
+            <h:inputText id="name" value="#{donateMoneyController.donation.donorName}" data-validatorMessage="Custom message 0:{0}, 1:{1}, 2:{2}">
                 <f:validateRequired />
             </h:inputText>
             <h:message for="name" style="color: red;" />
@@ -68,9 +69,9 @@
             <h:message for="donationAmount" style="color: red;" />
         </h:panelGrid>
 
-        <h:selectBooleanCheckbox value="#{donateMoneyController.donation.receiptRequested}" /> #{msg['donateMoney.i_want_a_receipt']}
+        <p:selectBooleanCheckbox value="#{donateMoneyController.donation.receiptRequested}" /> #{msg['donateMoney.i_want_a_receipt']}
         <br />
-        <h:commandButton value="#{msg['donateMoney.donate']}" action="#{donateMoneyController.doDonation}" />
+        <p:commandButton value="#{msg['donateMoney.donate']}" action="#{donateMoneyController.doDonation}" ajax="false"/>
 
     </h:form>
 </h:body>
